@@ -1,0 +1,9 @@
+{
+    success: true,
+    results : [
+        {id: 1, questionId : 1, from:'usuario1', text: 'comentario1', changeddate : '2012-01-02',  active:true},
+        {id: 2, questionId : 1, from:'usuario2', text: 'comentario2', changeddate : '2012-01-02',  active:true},
+        {id: 3, questionId : 2, from:'usuario1', text: 'comentario3', changeddate : '2012-01-02',  active:true},
+        {id: 4, questionId : 2, from:'usuario2', text: 'comentario4', changeddate : '2012-01-02',  active:true}
+    ]
+}
