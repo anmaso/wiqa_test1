@@ -58,6 +58,7 @@ Ext.define('M.Controller', {
 			var panel = this.getView(viewId).create();
 			panel.viewData = {};
 			panel.getViewData = function(){ return panel.viewData; }
+			panel.setViewData = function(data){ panel.viewData=data; }
 			M.addTab(panel);
 			return panel;
 	}

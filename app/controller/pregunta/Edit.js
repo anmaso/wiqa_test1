@@ -25,12 +25,21 @@ Ext.define('AM.controller.pregunta.Edit', {
         }
     });
 
-		this.getComentarioEditController().on('closed', this.comentarioCancelado);
+		this.getComentarioEditController().on({
+      closed: this.comentarioCancelado,
+      comentarioAceptado : this.comentarioAceptado,
+      scope : this
+    });
 
 		this.callParent(arguments);
 
 
   },
+
+	comentarioAceptado : function(panel){
+		console.log("refrescamos panel", panel);
+    this.cargarDatosIniciales(panel);
+	},
 
 	comentarioCancelado : function(){
 		console.log("y ahora?");
@@ -38,7 +47,10 @@ Ext.define('AM.controller.pregunta.Edit', {
 	},
 
 	crearComentario: function(comp) {
-		this.getComentarioEditController().crearComentario();
+    //Mdoc : obtener datos de la vista que controla este controller
+    var panel = comp.up('preguntaEdit');
+		this.getComentarioEditController().crearComentario(panel.getViewData().questionId, panel);
+
 	},
 
 	editarComentario: function(comp) {
@@ -58,21 +70,26 @@ Ext.define('AM.controller.pregunta.Edit', {
         form.close();
     }
 
-	, preguntaEdit : function(record){
-			var panel = this.preguntaCreate();
+	, editarPregunta : function(id){
+			var panel = this.crearPregunta();
+      panel.setViewData({questionId:id});
+      this.cargarDatosIniciales(panel, id);
 
+	},
+
+    //Mdoc : estandarizamos el nombre del método?
+  cargarDatosIniciales : function(panel,id){
       am.bo.pregunta.get.exec({
-        params:{id : record.get("id") }
+        params:{id : id }
        , success : function(response){
           var record = AM.model.Pregunta.create(response);
           panel.loadRecord(record);
           panel.down('mgrid').getStore().loadData(response.comments);
         }
       });
+  },
 
-	},
-
-	 preguntaCreate : function(){
+	 crearPregunta : function(){
 			var panel = this.addPanel('pregunta.Edit');
       return panel;
 	},

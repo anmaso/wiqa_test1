@@ -16,9 +16,12 @@ Ext.define('AM.controller.comentario.Edit', {
 		});
 	},
 
-	crearComentario : function(questionId){
-		this.questionId=questionId;
+	crearComentario : function(questionId, callerCmp){
 		var panel=this.addPanel('comentario.Edit');
+    //Mdoc : como esta pantalla va a ser SingleView, podemos almacenar datos en "this".
+		this.questionId=questionId;
+    //Mdoc : pero es mejor si estandarizamos y almacenamos los datos en el panel de la visat
+    panel.setViewData({callerCmp : callerCmp});
 		return panel;
 	},
 
@@ -30,12 +33,17 @@ Ext.define('AM.controller.comentario.Edit', {
 	borrarComentario : function(){
 	},
 
-	aceptar : function(comp){
-		var params = comp.up('window').down('form').getValues();
+	aceptar : function(cmp){
+    var panel = cmp.up('comentarioEdit');
+		var params = cmp.up('window').down('form').getValues(false,false,false,true);  // Mdoc : undocumented sencha, obtiene los getValue como objetos
+    var _controller = this;
 		Ext.apply(params, {questionId : this.questionId});
 		am.bo.comentario.create.exec({
 			params : params,
 			success : function(){
+        panel.close();
+        _controller.fireEvent('comentarioAceptado', panel.getViewData().callerCmp);
+
 			}
 		});
 	},

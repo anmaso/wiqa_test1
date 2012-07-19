@@ -55,7 +55,7 @@ M.operations = {
 					from : {  type : "string", optional : false},
 					active : {  type : "boolean", optional : false},
 					questionId : {  type : "number", optional : false},
-					changeddate : {  type : "date", optional : false}
+					changeddate : {  type : "object", optional : false}
 				}
 			}
     }

@@ -14,7 +14,7 @@ Ext.define('AM.view.comentario.Edit', {
 						{
 								xtype: 'textfield',
 								name: 'from',
-								fieldLabel: 'Texto',
+								fieldLabel: 'Nombre',
 								anchor: '100%'
 						},
 						{

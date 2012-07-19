@@ -25,13 +25,13 @@ Ext.define('AM.controller.pregunta.List', {
 
 			this.control({
 					'preguntaList dataview': {
-							itemdblclick: this.preguntaEdit
+							itemdblclick: this.editarPregunta
 					},
-					'preguntaList [action=preguntaCreate]': {
-							click: this.preguntaCreate
+					'preguntaList [action=crearPregunta]': {
+							click: this.crearPregunta
 					},
-					'preguntaList [action=preguntaRemove]': {
-							click: this.preguntaRemove
+					'preguntaList [action=borrarPregunta]': {
+							click: this.borrarPregunta
 					},
 
 					'preguntaList [action=buscar]': {
@@ -85,17 +85,20 @@ Ext.define('AM.controller.pregunta.List', {
       this.addPanel('pregunta.List');
     },
 
-		preguntaRemove : function(grid, record){
-        this.getPreguntaEditController().preguntaRemove(record);
+		borrarPregunta : function(grid, record){
+        this.getPreguntaEditController().borrarPregunta(record.get("id"));
+        //Mdoc alternativa 1 , pasar el record al otro controller
+        // mejor un controller no dependa de datos de pantalla (record) de otro controller, mejor pasar datos básicos o un dto nuevo
+        //this.getPreguntaEditController().borrarPregunta(record);
 		},
 
 
-    preguntaEdit : function(grid, record) {
-        this.getPreguntaEditController().preguntaEdit(record);
+    editarPregunta : function(grid, record) {
+        this.getPreguntaEditController().editarPregunta(record.get("id"));
     }
     
-    ,preguntaCreate : function(grid, record) {
-        this.getPreguntaEditController().preguntaCreate();
+    ,crearPregunta : function(grid, record) {
+        this.getPreguntaEditController().crearPregunta();
     }
 
 });
