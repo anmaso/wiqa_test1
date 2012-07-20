@@ -26,7 +26,7 @@ Ext.define('M.Controller', {
 
 			if (this.controllers){
 				Ext.each(this.controllers, function(name){
-					var getterName='get'+Ext.String.capitalize(name.replace(/\./g,''))+'Controller';
+					var getterName=_controller.getControllerGetterName(name);
 					console.log("creating getter : "+getterName);
 					_controller[getterName] = function(){
 						return _controller.getController(name);
@@ -39,6 +39,23 @@ Ext.define('M.Controller', {
 			console.log("M.controller init:"+this.id);
 			this.callParent(arguments);
 		},
+
+    getControllerGetterName : function(name){
+      return 'get'+Ext.String.capitalize(name.replace(/\./g,''))+'Controller';
+    },
+
+    control : function(config){
+      for(var selector in config){
+        if (selector.charAt(0)=='!'){
+          //es un evento de un controller
+          var events =  config[selector] ;
+          events.scope = this;
+          (this[this.getControllerGetterName(selector.slice(1))])().on(events);
+          delete config[selector];
+        }
+      }
+      this.callParent(arguments);
+    },
 
 		getController : function(){
 				var ctrl = this.callParent(arguments);

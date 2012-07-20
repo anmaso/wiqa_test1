@@ -22,16 +22,24 @@ Ext.define('AM.controller.pregunta.Edit', {
             crearComentario: this.crearComentario,
             editarComentario: this.editarComentario,
             borrarComentario: this.borrarComentario
+        },
+
+        '!comentario.Edit' : {
+          comentarioAceptado : this.comentarioAceptado
         }
     });
 
-		//Mdoc: revisar este patrón. para comunicar resultados de una vista/controller hijo, se envían eventos desde su controller
+    window.dd=this;
+		//Mdoc: revisar este patron. para comunicar resultados de una vista/controller hijo, se envian eventos desde su controller
 		// sin embargo cuando se comunica hacia un controller hijo, se hace accediendo directamente
+    //
+    /*
 		this.getComentarioEditController().on({
       closed: this.comentarioCancelado,
       comentarioAceptado : this.comentarioAceptado,
       scope : this
     });
+    */
 
 		this.callParent(arguments);
 
@@ -40,7 +48,7 @@ Ext.define('AM.controller.pregunta.Edit', {
 
 	comentarioAceptado : function(panel){
 		console.log("refrescamos panel", panel);
-    this.cargarDatosIniciales(panel);
+    this.cargarDatosIniciales(panel, panel.getViewData().questionId);
 	},
 
 	comentarioCancelado : function(){
@@ -51,7 +59,7 @@ Ext.define('AM.controller.pregunta.Edit', {
 	crearComentario: function(comp) {
     //Mdoc : obtener datos de la vista que controla este controller
     var panel = comp.up('preguntaEdit');
-		//Mdoc accedemos directamente al método del controller
+		//Mdoc accedemos directamente al metodo del controller
 		this.getComentarioEditController().crearComentario(panel.getViewData().questionId, panel);
 
 		//Mdoc altenariva, enviando un envento
