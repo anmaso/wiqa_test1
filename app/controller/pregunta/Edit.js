@@ -25,6 +25,8 @@ Ext.define('AM.controller.pregunta.Edit', {
         }
     });
 
+		//Mdoc: revisar este patrón. para comunicar resultados de una vista/controller hijo, se envían eventos desde su controller
+		// sin embargo cuando se comunica hacia un controller hijo, se hace accediendo directamente
 		this.getComentarioEditController().on({
       closed: this.comentarioCancelado,
       comentarioAceptado : this.comentarioAceptado,
@@ -49,7 +51,11 @@ Ext.define('AM.controller.pregunta.Edit', {
 	crearComentario: function(comp) {
     //Mdoc : obtener datos de la vista que controla este controller
     var panel = comp.up('preguntaEdit');
+		//Mdoc accedemos directamente al método del controller
 		this.getComentarioEditController().crearComentario(panel.getViewData().questionId, panel);
+
+		//Mdoc altenariva, enviando un envento
+		//this.getComentarioEditController().fireEvent('crearComentario', panel.getViewData().questionId, panel);
 
 	},
 

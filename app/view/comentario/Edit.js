@@ -10,6 +10,7 @@ Ext.define('AM.view.comentario.Edit', {
 		items : [
 				{ 
 					xtype : 'form',
+					bodyStyle : 'padding: 5px',
 					items: [
 						{
 								xtype: 'textfield',

@@ -41,9 +41,8 @@ Ext.define('AM.controller.comentario.Edit', {
 		am.bo.comentario.create.exec({
 			params : params,
 			success : function(){
+        panel.fireEvent('comentarioAceptado', panel.getViewData().callerCmp);
         panel.close();
-        _controller.fireEvent('comentarioAceptado', panel.getViewData().callerCmp);
-
 			}
 		});
 	},
