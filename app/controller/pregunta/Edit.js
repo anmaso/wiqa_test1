@@ -24,6 +24,7 @@ Ext.define('AM.controller.pregunta.Edit', {
             borrarComentario: this.borrarComentario
         },
 
+				//Mdoc : este patron captura eventos del controller comentario.Edit
         '!comentario.Edit' : {
           comentarioAceptado : this.comentarioAceptado
         }
@@ -46,9 +47,9 @@ Ext.define('AM.controller.pregunta.Edit', {
 
   },
 
-	comentarioAceptado : function(panel){
-		console.log("refrescamos panel", panel);
-    this.cargarDatosIniciales(panel, panel.getViewData().questionId);
+	comentarioAceptado : function(panelHijo, panelPadre){
+		console.log("refrescamos panel", panelHijo,panelPadre);
+    this.cargarDatosIniciales(panelPadre, panelPadre.getViewData().questionId);
 	},
 
 	comentarioCancelado : function(){

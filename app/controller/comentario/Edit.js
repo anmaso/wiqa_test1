@@ -41,7 +41,10 @@ Ext.define('AM.controller.comentario.Edit', {
 		am.bo.comentario.create.exec({
 			params : params,
 			success : function(){
-        _controller.fireEvent('comentarioAceptado', panel.getViewData().callerCmp);
+				//Mdoc: se comunica al controller padre mediante eventos, el primer parametro debe ser la view de este controller
+				// de forma que si el controller padre tiene asociados varios paneles de este sub-controller sepa a donde tiene
+				// que enviar datos
+        _controller.fireEvent('comentarioAceptado', panel, panel.getViewData().callerCmp);
         panel.close();
 			}
 		});
