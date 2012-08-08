@@ -1,5 +1,5 @@
 Ext.define('AM.controller.pregunta.Edit', {
-    extend:'M.Controller',
+  extend: 'M.Controller',
 
     stores:['Categorias', 'Comentarios'],
 
@@ -24,10 +24,13 @@ Ext.define('AM.controller.pregunta.Edit', {
                 borrarComentario:this.borrarComentario
             },
 
-            '!comentario.Edit':{
-                comentarioAceptado:this.comentarioAceptado
-            }
-        });
+
+				//Mdoc : este patron captura eventos del controller comentario.Edit
+        '!comentario.Edit' : {
+          comentarioAceptado : this.comentarioAceptado
+        }
+    });
+
 
         window.dd = this;
         //Mdoc: revisar este patron. para comunicar resultados de una vista/controller hijo, se envian eventos desde su controller
@@ -46,10 +49,12 @@ Ext.define('AM.controller.pregunta.Edit', {
 
     },
 
-    comentarioAceptado:function (panel) {
-        console.log("refrescamos panel", panel);
-        this.cargarDatosIniciales(panel, panel.getViewData().questionId);
-    },
+
+	comentarioAceptado : function(panelHijo, panelPadre){
+		console.log("refrescamos panel", panelHijo,panelPadre);
+    this.cargarDatosIniciales(panelPadre, panelPadre.getViewData().questionId);
+	},
+
 
     comentarioCancelado:function () {
         console.log("y ahora?");
