@@ -1,10 +1,10 @@
 {
-  "operations" : [
-    "pesca.flow.tareas.lista" : {
-      input : [
-        finalizadas : "bool"
-        ]
-    }
-    ]
+    "operations":[
+        "pesca.flow.tareas.lista" : {
+input : [
+finalizadas : "bool"
+]
+}
+]
 
 }

@@ -3,7 +3,8 @@ Ext.Loader.setConfig({
 	, paths : { AM : 'app' }
 });
 Ext.application({
-	name: 'AM',
+    name:'AM',
+
 
 	controllers : [
 	  'M'
@@ -11,6 +12,7 @@ Ext.application({
  
   requires : [ 'M', 'M.Controller', 'businessOperations' ],
 
+
     // automatically create an instance of AM.view.Viewport
-    autoCreateViewport: true
+    autoCreateViewport:true
 });

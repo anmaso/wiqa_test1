@@ -1,16 +1,31 @@
 {
-  "success" : true,
-  "results" : {
-  "id" :1,
-  "question" : "Pregunta 1",
-  "changeddate" : "2012-01-21",
-  "answerdate" : "2012-02-21",
-  "answer" : "Respuesta 1",
-  "category " :1,
-  "active" : true,
-  "comments" : [
-    { "id" : 1, "questionId" : 1, "from" : "angel", "text" : "comentario1", "changeddate" : "2012-03-03", "active" : true }
-    ,{ "id" : 2, "questionId" : 1, "from" : "angel", "text" : "comentario2", "changeddate" : "2012-03-03", "active" : true }
-  ]
- }
+    "success":true,
+    "results":{
+        "id":1,
+        "question":"Pregunta 1",
+        "changeddate":"2012-01-21",
+        "answerdate":"2012-02-21",
+        "answer":"Respuesta 1",
+        "category ":1,
+        "active":true,
+        "comments":[
+            {
+                "id":1,
+                "questionId":1,
+                "from":"angel",
+                "text":"comentario1",
+                "changeddate":"2012-03-03",
+                "active":true
+            }
+            ,
+            {
+                "id":2,
+                "questionId":1,
+                "from":"angel",
+                "text":"comentario2",
+                "changeddate":"2012-03-03",
+                "active":true
+            }
+        ]
+    }
 }

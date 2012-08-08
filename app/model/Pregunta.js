@@ -1,36 +1,36 @@
 Ext.define('AM.model.Pregunta', {
-    extend: 'Ext.data.Model',
-    alias: 'model.preguntaItem',
-    idProperty: 'id',
+    extend:'Ext.data.Model',
+    alias:'model.preguntaItem',
+    idProperty:'id',
 
-    fields: [
+    fields:[
         {
-            name: 'id',
-            type: 'int'
+            name:'id',
+            type:'int'
         },
         {
-            name: 'changeddate',
-            type: 'date'
+            name:'changeddate',
+            type:'date'
         },
         {
-            name: 'answerdate',
-            type: 'date'
+            name:'answerdate',
+            type:'date'
         },
         {
-            name: 'question',
-            type: 'string'
+            name:'question',
+            type:'string'
         },
         {
-            name: 'answer',
-            type: 'string'
+            name:'answer',
+            type:'string'
         },
         {
-            name: 'category',
-            type: 'int'
+            name:'category',
+            type:'int'
         },
         {
-            name: 'active',
-            type: 'boolean'
+            name:'active',
+            type:'boolean'
         }
     ]
 });

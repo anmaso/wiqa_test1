@@ -1,30 +1,30 @@
 Ext.define('AM.model.Comentario', {
-    extend: 'Ext.data.Model',
-    idProperty: 'id',
-    fields: [
+    extend:'Ext.data.Model',
+    idProperty:'id',
+    fields:[
         {
-            name: 'id',
-            type: 'int'
+            name:'id',
+            type:'int'
         },
         {
-            name: 'questionId',
-            type: 'int'
+            name:'questionId',
+            type:'int'
         },
         {
-            name: 'from',
-            type: 'string'
+            name:'from',
+            type:'string'
         },
         {
-            name: 'text',
-            type: 'string'
+            name:'text',
+            type:'string'
         },
         {
-            name: 'changeddate',
-            type: 'date'
+            name:'changeddate',
+            type:'date'
         },
         {
-            name: 'active',
-            type: 'boolean'
+            name:'active',
+            type:'boolean'
         }
     ]
 });
