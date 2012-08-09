@@ -10,7 +10,7 @@ Ext.application({
 	  'M'
 	],
  
-  requires : [ 'M', 'M.Controller', 'businessOperations' ],
+  requires : [ 'M.Controller' ],
 
 
     // automatically create an instance of AM.view.Viewport
