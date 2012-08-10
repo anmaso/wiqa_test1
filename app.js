@@ -7,7 +7,7 @@ Ext.application({
 
 
 	controllers : [
-	  'M'
+	  'AM'
 	],
  
   requires : [ 'M.Controller' ],

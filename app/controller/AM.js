@@ -1,4 +1,4 @@
-Ext.define('AM.controller.M', {
+Ext.define('AM.controller.AM', {
     extend:'M.Controller',
 
     init:function (app) {
