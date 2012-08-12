@@ -1,12 +1,18 @@
 Ext.define('AM.view.Viewport', {
     extend:'Ext.container.Viewport',
 
+requires : [ 'AM.view.Cabecera', 'AM.view.MenuNavegacion'],
     layout:'fit',
 
     items:[
         {
             xtype:'panel',
             items:[
+								{ 
+									xtype : 'cabecera', html : 'panel1'
+
+								
+								},
                 {
                     xtype:'tabpanel',
                     id:'contenido',
@@ -17,11 +23,6 @@ Ext.define('AM.view.Viewport', {
                     ]
                 }
             ],
-            tbar:[
-                {xtype:'button', text:'Buscar preguntas', action:'preguntaList'}
-                ,
-                {xtype:'button', text:'ajaxTest1', action:'ajaxTest1'}
-            ]
         }
     ]
 });

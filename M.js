@@ -113,4 +113,43 @@ M.log.levels = {
 
 M.log.level=M.log.levels.TRACE;
 
+M.config = function(cfg){
+	M.config.cfg=cfg;
+};
+
+M.config.showHelpButton = function(){
+	return M.config.cfg.showHelpButton;
+};
+
+/* strings usados por M */
+M.i18n = {
+	add : function(strings){
+
+		Ext.applyIf(M.i18n.strings, strings);
+
+		for(var lang in strings){
+			Ext.apply(M.i18n.strings[lang], strings[lang]);
+		}
+	},
+
+	/* asigna a la variable global i18n los valores del locale seleccionado */
+	resolveLocale : function(locale){
+		i18n = M.i18n.strings[locale];
+	},
+
+	strings :{
+		es_ES : {
+			helpButton : 'Ayuda'
+		},
+
+		en_EN : {
+			helpButton : 'Help'
+		}
+	}
+
+};
+
+
+;
+
 
